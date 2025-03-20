@@ -9,7 +9,10 @@
   },
   "private": true,
   "dependencies": {
+    "@hono/arktype-validator": "^2.0.0",
+    "arktype": "^2.1.10",
     "hono": "^4.7.4",
+    "hono-openapi": "^0.4.6",
     "honox": "^0.1.38"
   },
   "devDependencies": {
