@@ -5,6 +5,11 @@ import honox from 'honox/vite'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
+  ssr: {
+    external: [
+      'hono-openapi/arktype'
+    ]
+  },
   plugins: [
     honox({
       devServer: { adapter },
