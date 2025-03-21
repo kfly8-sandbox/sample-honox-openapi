@@ -1,8 +1,28 @@
 import { showRoutes } from 'hono/dev'
 import { createApp } from 'honox/server'
 
-const app = createApp()
+import { Hono } from 'hono';
+import { openAPISpecs } from 'hono-openapi'
+import { apiReference } from '@scalar/hono-api-reference'
 
-showRoutes(app)
+const app = new Hono();
 
-export default app
+app.get(
+  '/docs',
+  apiReference({
+  theme: 'saturn',
+  url: '/openapi',
+  })
+)
+
+// NOT WORKING...
+app.get(
+  '/openapi',
+  openAPISpecs(app)
+)
+
+const a = createApp(app)
+
+showRoutes(a)
+
+export default a
